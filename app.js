@@ -1,0 +1,37 @@
+async function randomUser() {
+    let data = await fetch('https://randomuser.me/api');
+    let randomName = await data.json();
+    let results = randomName.results;
+    let random = Math.floor(Math.random()*results.length);
+    let randUser = results[random];
+    document.getElementById('gender').innerText ="Gender : "+ randUser.gender;
+    document.getElementById('name').innerText ="Name : "+ randUser.name.title+" "+randUser.name.first+" "+randUser.name.last;
+    document.getElementById('streetNo').innerText ="Street No.: "+ randUser.location.street.number;
+    document.getElementById('streetName').innerText ="Street Name: "+ randUser.location.street.name;
+    document.getElementById('city').innerText ="City Name: "+ randUser.location.city;
+    document.getElementById('state').innerText ="State: "+ randUser.location.state;
+    document.getElementById('country').innerText ="Country: "+ randUser.location.country;
+    document.getElementById('postCode').innerText ="Post code: "+ randUser.location.postcode;
+    document.getElementById('latitude').innerText ="Latitude: "+ randUser.location.coordinates.latitude;
+    document.getElementById('longitude').innerText ="Longitude: "+ randUser.location.coordinates.longitude;
+    document.getElementById('timezone').innerText ="Time zone: "+ randUser.location.timezone.offset+"  "+randUser.location.timezone.description;
+    document.getElementById('email').innerText ="Email: "+ randUser.email;
+    document.getElementById('uuid').innerText ="UUID: "+ randUser.login.uuid;
+    document.getElementById('username').innerText ="User Name: "+ randUser.login.username;
+    document.getElementById('password').innerText ="Password: "+ randUser.login.password;
+    document.getElementById('salt').innerText ="Salt: "+ randUser.login.salt;
+    document.getElementById('md5').innerText ="md5: "+ randUser.login.md5;
+    document.getElementById('sha1').innerText ="sha1 : "+ randUser.login.sha1;
+    document.getElementById('sha256').innerText ="sha256 : "+ randUser.login.sha256;
+    document.getElementById('date').innerText ="Date : "+ randUser.dob.date;
+    document.getElementById('age').innerText ="Age : "+ randUser.dob.age;
+    document.getElementById('regdate').innerText ="Date : "+ randUser.registered.date;
+    document.getElementById('regAge').innerText ="Age : "+ randUser.registered.age;
+    document.getElementById('phone').innerText ="Phone : "+ randUser.phone;
+    document.getElementById('cell').innerText ="Cell : "+ randUser.cell;
+    document.getElementById('idname').innerText ="Name : "+ randUser.id.name;
+    document.getElementById('value').innerText ="Value : "+ randUser.id.value;
+    document.getElementById('large').src = randUser.picture.large;
+    document.getElementById('nat').innerText ="Native : "+ randUser.nat;
+}
+randomUser();
